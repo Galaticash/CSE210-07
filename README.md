@@ -17,14 +17,15 @@ Requirements:
 
 | Class | Job |
 | ----- | --- |
-Class 1 | (job)
-Class 2 | (job)
-Class 3 | (job)
-Class 4 | (job)
-Class 5 | (job)
-Class 6 | (job)
-Class 7 | (job)
-Class 8 | (job)
+Director/Game | Directs the inner workings of the game
+Player | Moves around the screen, interacts with the rocks and gems
+Player Input | Gets input from the user, only acting on valid input ('a' or left arrow - left, 'd' or right arrow - right, 'q' - quit)
+GUI/Screen | Displays everything on the screen
+Rock | Falls from the sky at a certain speed, has a character/sprite to represent itself, and has a -1 point
+Gem | Inherits from Rock, overwrites character/sprite and +1 point
+Score | Calculates and displays the score
+* Message | Displays a game over message/extra messages/etc
+* Big Rock | A bigger version of rock with a larger hitbot and sprite
 
 # Week 8 - Greed Program
 ## Team members in attendance 6/9 (Programming)
