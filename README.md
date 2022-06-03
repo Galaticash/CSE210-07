@@ -32,4 +32,18 @@ Class 8 | (job)
 ## TODO: Implementation
 - [ ] Code each class (using inheritance!)
      - [ ] Class 1
+     - [ ] Class 2
+     - [ ] Class 3
+     - [ ] Class 4
+     - [ ] Class 5
+     - [ ] Class 6
+     - [ ] Class 7
+     - [ ] Class 8
 - [ ] Add comments
+- [ ] Ensure the entire program works
+
+## Extra
+- Enhanced gems and rocks (multiple kinds, different points).
+- Enhanced player movement (up and down in a limited range) - Jumping
+- Enhanced game play and game over messages. - actually end the game
+- Enhanced gem, rock and player representation (colors or better symbols) - images possibly?
