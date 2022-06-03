@@ -6,7 +6,16 @@
 Requirements: Eight classes
 
 
-Class | Job———— | ————-Class 1 | Class 2Content in the first column | Content in the second column
+Class | Job
+---| ---| ---|
+Class 1 | (job)
+Class 2 | (job)
+Class 3 | (job)
+Class 4 | (job)
+Class 5 | (job)
+Class 6 | (job)
+Class 7 | (job)
+Class 8 | (job)
 
 ## Greed Game
 There are things falling from the sky! Move the character (#) and make sure to catch the gems (*) and avoid the rocks (0). Gems will give the player a point while rocks remove points. The score is displayed in the top of the screen. There is no win/lose, closing the window ends the game.
