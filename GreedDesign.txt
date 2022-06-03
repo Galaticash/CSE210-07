@@ -1,0 +1,89 @@
+W7 - Greed
+Inheritance
+
+Jobs:
+
+Ashley - GUI/Display & *Message/Game Over (pylib/raylib)
+Hailey - Rock & Gem *Big Rock (inheritance)
+John - Game/Director
+Matt - Player & Player Input
+Ethan - Score
+
+
+Classes:
+
+*optional/extra things
+
+Game/Director
+Has:
+    Player
+    List of Rock/Gems being generated on the screen
+    GUI/Screen
+    Score
+    *Difficulty - determine the average speed of the falling rocks
+
+Does:
+    Directs the game
+    Keep track of positions (then passes them to Screen to print)
+
+
+GUI/Screen - Graphical, shows what is going on
+Has: 
+
+Does: 
+    Updates the screen/how it looks - using Raylib
+
+
+Score
+Has: 
+    int score
+Does: 
+    Add the score together
+    displays /it? Or just has a __str__ for Screen to print
+
+
+Player
+Has: 
+    A character to represent itself
+Does: 
+    Can move the player left/right
+    Can get hit by rocks/collect gems
+
+
+Player Input
+Has: 
+    Valid Player Input (a - left & d - right) (arrows) OR (mouse input)
+        --> if a or <--, then pass "left" OR if d or -->, pass "left"
+    Input to press to exit the game ('esc'<-- find out what key? or 'q')
+Does: 
+    Takes user movement and makes sure it's valid
+
+
+Rock (base class)
+Has: 
+    character/symbol
+    speed - 1 line/frame per second
+Does: 
+    points <-- -1
+    Calculate where it is on the screen (How fast it falls)
+
+
+Gem (inherit)
+Has: 
+    character/symbol 
+Does: 
+    points <-- +1
+
+
+Game over:
+Has: 
+    game over messages
+Does: 
+    prints game over message
+
+OR 
+
+Big Rock (inherits from rock)
+Has: 
+    a 2x2 symbol/sprite
+    more negative points
