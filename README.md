@@ -25,5 +25,5 @@ There are things falling from the sky! Move the character (#) and make sure to c
 ## Team members in attendance 6/9 (Programming)
 
 ## TODO: Implementation
--[] Code each class (using inheritance!)
--[] Add comments
+- [ ] Code each class (using inheritance!)
+- [ ] Add comments
