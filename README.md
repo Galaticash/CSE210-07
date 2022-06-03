@@ -7,7 +7,7 @@ Requirements: Eight classes
 
 
 Class | Job
----| ---| ---|
+--- | --- | --- |
 Class 1 | (job)
 Class 2 | (job)
 Class 3 | (job)
