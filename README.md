@@ -24,10 +24,10 @@ GUI/Screen | Displays everything on the screen
 Rock | Falls from the sky at a certain speed, has a character/sprite to represent itself, and has a -1 point
 Gem | Inherits from Rock, overwrites character/sprite and +1 point
 Score | Calculates and displays the score
-* Message | Displays a game over message/extra messages/etc
-* Big Rock | A bigger version of rock with a larger hitbot and sprite
+\* Message | Displays a game over message/extra messages/etc
+\* Big Rock | A bigger version of rock with a larger hitbot and sprite
 
-* Indicates that the feature is optional, depending on if the 8 class requirement has been met.
+\* Indicates that the feature is optional, depending on if the 8 class requirement has been met.
 
 # Week 8 - Greed Program
 ## Team members in attendance 6/9 (Programming)
