@@ -5,7 +5,7 @@
 There are things falling from the sky! Move the character (#) and make sure to catch the gems (*) and avoid the rocks (0). Gems will give the player a point while rocks remove points. The score is displayed in the top of the screen. There is no win/lose, closing the window ends the game.
 
 # TODO: Design
-## Team members in attendance 6/2 (Designing): 
+## Team members in attendance 6/2 (Designing): Ashley, Hailey, John, Matt
 Requirements:
 - Eight classes
 - Gems and rocks randomly appear at the top of the screen
@@ -27,19 +27,22 @@ Score | Calculates and displays the score
 * Message | Displays a game over message/extra messages/etc
 * Big Rock | A bigger version of rock with a larger hitbot and sprite
 
+* Indicates that the feature is optional, depending on if the 8 class requirement has been met.
+
 # Week 8 - Greed Program
 ## Team members in attendance 6/9 (Programming)
 
 ## TODO: Implementation
 - [ ] Code each class (using inheritance!)
-     - [ ] Class 1
-     - [ ] Class 2
-     - [ ] Class 3
-     - [ ] Class 4
-     - [ ] Class 5
-     - [ ] Class 6
-     - [ ] Class 7
-     - [ ] Class 8
+     - [ ] Director/Game
+     - [ ] Player
+     - [ ] Player Input
+     - [ ] GUI/Screen
+     - [ ] Rock
+     - [ ] Gem
+     - [ ] Score
+     - [ ] * Big Rock
+     - [ ] * Message
 - [ ] Add comments
 - [ ] Ensure the entire program works
 
