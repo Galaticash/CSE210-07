@@ -1,4 +1,5 @@
 ##Used for testing... may change as needed to adjust screen height.
+#May also use or change this variable in code to adapt
 # MAX_SCREEN_HEIGHT = 10
 
 #creates the Rock class (PARENT class)
@@ -63,3 +64,4 @@ print(g.hit())
 print(r.position)
 r.location()
 print(r.position)
+
