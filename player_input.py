@@ -1,7 +1,4 @@
 # copied from https://code.activestate.com/recipes/134892/ , then modified for error handling and ETX/EOT inputs#
-from ast import NotEq
-
-
 class _Getch:
     """Gets a single character from standard input.  Does not echo to the
 screen."""
