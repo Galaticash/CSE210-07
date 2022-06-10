@@ -1,41 +1,22 @@
-# copied from https://code.activestate.com/recipes/134892/ , then modified for error handling and ETX/EOT inputs#
-class _Getch:
-    """Gets a single character from standard input.  Does not echo to the
-screen."""
-    def __init__(self):
-        try:
-            self.impl = _GetchWindows()
-        except ImportError:
-            self.impl = _GetchUnix()
+#borrowed from RFK and simplified#
+import pyray
 
-    def __call__(self): return self.impl()
+class KeyboardService:
 
+    def get_direction(self):
+        dx = 0
 
-class _GetchUnix:
-    def __init__(self):
-        import tty, sys
+        if pyray.is_key_down(pyray.KEY_LEFT):
+            dx = -1
+        
+        if pyray.is_key_down(pyray.KEY_RIGHT):
+            dx = 1
+        
+        if pyray.is_key_down(pyray.KEY_UP):
+            raise EOFError("Game over, invalid input")
+        
+        if pyray.is_key_down(pyray.KEY_DOWN):
+            raise EOFError("Game over, invalid input")
 
-    def __call__(self):
-        import sys, tty, termios
-        fd = sys.stdin.fileno()
-        old_settings = termios.tcgetattr(fd)
-        try:
-            tty.setraw(sys.stdin.fileno())
-            ch = sys.stdin.read(1)
-            if ch in ('\x03', '\x04'):
-                raise KeyboardInterrupt
-        finally:
-            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-        return ch
-
-
-class _GetchWindows:
-    def __init__(self):
-        import msvcrt
-
-    def __call__(self):
-        import msvcrt
-        return msvcrt.getch()
-
-
-getch = _Getch()
+        direction = dy        
+        return direction
