@@ -1,6 +1,5 @@
 import pyray
 import random
-# or is it only supposed to be raylib???
 
 FRAME_RATES = {"easy": 12, "medium": 30, "hard": 60}
 FRAME_RATE = FRAME_RATES["easy"]
@@ -43,6 +42,7 @@ class Window():
         # Has a const set Frame Rate, limits number of updates
         pyray.set_target_fps(FRAME_RATE)
         self._font_size = FONT_SIZE
+        # NOTE: Colors are changing every frame
         self._colors = [pyray.RED, pyray.ORANGE, pyray.YELLOW, pyray.GREEN, pyray.BLUE, pyray.VIOLET]
 
     def get_width(self):
