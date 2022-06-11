@@ -9,5 +9,5 @@ class Score():
         return self._score
 
     # increments score based on value of object hit
-    def set_score(self, points):
+    def add_score(self, points):
         self._score += points

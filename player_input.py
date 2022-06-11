@@ -17,6 +17,5 @@ class KeyboardService:
         
         if pyray.is_key_down(pyray.KEY_DOWN):
             raise EOFError("Game over, invalid input")
-
-        direction = dy        
-        return direction
+        
+        return dx
