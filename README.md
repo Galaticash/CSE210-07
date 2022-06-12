@@ -26,11 +26,12 @@ Gem | Inherits from Rock, overwrites character/sprite and +1 point
 Score | Calculates and displays the score
 \* Message | Displays a game over message/extra messages/etc
 \* Big Rock | A bigger version of rock with a larger hitbot and sprite
+Actor | Acts as a base class for both Player and Rock. Holds position, color, and font size attributes
 
 \* Indicates that the feature is optional, depending on if the 8 class requirement has been met.
 
 # Week 8 - Greed Program
-## Team members in attendance 6/9 (Programming)
+## Team members in attendance 6/9 (Programming): Ashley, Matt, Ethan
 
 ## TODO: Implementation
 - [ ] Code each class (using inheritance!)
