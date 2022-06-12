@@ -40,12 +40,12 @@ Score | Calculates and displays the score
      - [x] Graphical Interface/Window
      - [x] Rock (base class)
      - [x] Gem (inherits from Rock)
-     - [X] Score
-     - [ ] * Big Rock
+     - [x] Score
+     - [x] * Big Rock
      - [ ] * Message
-     - [ ] * Actor (base class for Rock and Player)
+     - [x] * Actor (base class for Rock and Player)
 - [ ] Add comments
-- [ ] Ensure the entire program works
+- [x] Ensure the entire program works
 
 ## Extra
 - Enhanced gems and rocks (multiple kinds, different points).
