@@ -1,3 +1,4 @@
+from hashlib import new
 import random
 
 from GraphicInterface import Window
@@ -5,7 +6,7 @@ from player import Player
 from RockGem import * # Imports all the types of Rocks and Gems
 
 # The population distribution of the Rocks
-ROCK_POP = {"Total": 10, "Rocks": 7, "Gems": 3}
+ROCK_POP = {"Total": 12, "Big Rocks": 2, "Rocks": 7, "Gems": 3}
 
 # How large the game window is 
 #   (also used for generating Rocks)
@@ -26,11 +27,11 @@ class Director:
         self._window_max_x = WINDOW_MAX_X
         self._window_max_y = WINDOW_MAX_Y
         self._font_size = FONT_SIZE
-        self._window = Window(self._window_max_x, self._window_max_y)
+        self._window = Window(self._window_max_x, self._window_max_y, self._font_size)
 
         # Creates a Player and places them in the center bottom of the screen
         # The Score and Keyboard_Input classes will be used within the Player class
-        self._Player = Player([self._window_max_x//2, self._window_max_y - self._font_size])
+        self._Player = Player(self._window_max_x, self._window_max_y, self._font_size)
         
         # Given a number of rocks, will create a list of Rock objects
         self._num_rocks = ROCK_POP["Total"]
@@ -42,8 +43,23 @@ class Director:
             Adds the new Rock to the Game's list of rocks.
         """
         # Randomly decides if the Rock will be a Gem or a Rock,
-        #  given the chance values (ex: 7/10 Rocks and 3/10 Gems).
-        new_rock = random.choices([Rock(self._window_max_x), Gem(self._window_max_x)], weights=(ROCK_POP["Rocks"], ROCK_POP["Gems"]))[0]
+        #  given the chance values (ex: 7/10 are Rocks and 3/10 are Gems).
+        
+        # Now that I think about this more, maybe not the most efficient - makes a list of 12 Rocks but only keeps 1
+        #new_rock = random.choices([Rock(self._window_max_x, self._window_max_y, self._font_size),  Big_Rock(self._window_max_x, self._window_max_y, self._font_size), Gem(self._window_max_x, self._window_max_y, self._font_size)], weights=(ROCK_POP["Rocks"], ROCK_POP["Big Rocks"], ROCK_POP["Gems"]))[0]
+        
+        new_rock = None
+        rock_type = random.randint(0, self._num_rocks)
+        # Between 0 and "Rocks" num (0 - 7)
+        if rock_type < ROCK_POP["Rocks"]:
+            new_rock = Rock(self._window_max_x, self._window_max_y, self._font_size)
+        # Between "Rocks" num and "Big Rocks" + "Rocks" num (7 - 9)
+        elif rock_type < ROCK_POP["Rocks"] + ROCK_POP["Big Rocks"]:
+            new_rock =  Big_Rock(self._window_max_x, self._window_max_y, self._font_size)
+        # Between "Total" num - "Gems" num (9 - 12)
+        else:
+            new_rock =  Gem(self._window_max_x, self._window_max_y, self._font_size)
+        
         self._Rocks.append(new_rock)
 
     def _replace_rock(self, rock):

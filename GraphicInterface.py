@@ -1,11 +1,9 @@
+from tkinter import font
 import pyray
 import random
 
 FRAME_RATES = {"easy": 12, "medium": 30, "hard": 60}
 FRAME_RATE = FRAME_RATES["easy"]
-WINDOW_MAX_X = 900
-WINDOW_MAX_Y = 600
-FONT_SIZE = 25
 
 """
     Requries:
@@ -34,22 +32,17 @@ class Window():
         get_width() and get_height() for randomizing the locations of the rocks
         all other methods are private (indicated by "_")
     """
-    def __init__(self, width = WINDOW_MAX_X, height = WINDOW_MAX_Y):
+    def __init__(self, width, height, font_size):
         # Given a width and height, creates a new window
         self._width = width
         self._height = height
         pyray.init_window(self._width, self._height, "Greed Game - Team F")
         # Has a const set Frame Rate, limits number of updates
         pyray.set_target_fps(FRAME_RATE)
-        self._font_size = FONT_SIZE
+        self._font_size = font_size
+
         # NOTE: Colors are changing every frame
         self._colors = [pyray.RED, pyray.ORANGE, pyray.YELLOW, pyray.GREEN, pyray.BLUE, pyray.VIOLET]
-
-    def get_width(self):
-        return self._width
-
-    def get_height(self):
-        return self._height
 
     def _print_score(self, player):
         """
@@ -61,16 +54,7 @@ class Window():
         """
             Prints the given actor on the board. All variables used are recieved from the actor itself.
         """
-        pyray.draw_text(actor.get_character(), actor.get_x(), actor.get_y(), actor.get_font_size(), actor.get_color())
-
-    def _print_rock(self, rock):
-        """
-            Prints the given rock on the board. All variables used are recieved from the actor itself.
-        """
-        pyray.draw_text(rock.get_symbol(), rock.get_x(), rock.get_y(), self._font_size, random.choice(self._colors))
-
-    def _print_player(self, player):
-        pyray.draw_text("#", player.get_x(), player.get_y(), self._font_size, pyray.RAYWHITE)
+        pyray.draw_text(actor.get_symbol(), actor.get_x(), actor.get_y(), actor.get_font_size(), actor.get_color())
 
     def update(self, player, rocks):
         """
@@ -82,10 +66,10 @@ class Window():
 
         # Updates all the rocks
         for a in rocks:
-            self._print_rock(a)
+            self._print_actor(a)
         
         # Updates the player
-        self._print_player(player)
+        self._print_actor(player)
 
         # Updates the score
         self._print_score(player)
