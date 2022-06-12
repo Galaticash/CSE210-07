@@ -1,10 +1,11 @@
 import pyray
-# or is it only supposed to be raylib???
+import random
 
-FRAME_RATE = 12
+FRAME_RATES = {"easy": 12, "medium": 30, "hard": 60}
+FRAME_RATE = FRAME_RATES["easy"]
 WINDOW_MAX_X = 900
 WINDOW_MAX_Y = 600
-FONT_SIZE = 50
+FONT_SIZE = 25
 
 """
     Requries:
@@ -41,6 +42,8 @@ class Window():
         # Has a const set Frame Rate, limits number of updates
         pyray.set_target_fps(FRAME_RATE)
         self._font_size = FONT_SIZE
+        # NOTE: Colors are changing every frame
+        self._colors = [pyray.RED, pyray.ORANGE, pyray.YELLOW, pyray.GREEN, pyray.BLUE, pyray.VIOLET]
 
     def get_width(self):
         return self._width
@@ -52,19 +55,28 @@ class Window():
         """
             Message 1, displays how many rocks are falling. For Debug
         """
-        pyray.draw_text(f"Falling: {len(rocks)}", 0, 0, int(self._font_size * 2/3), pyray.RED)
+        pyray.draw_text(f"Falling: {len(rocks)}", 0, 0, int(self._font_size * 2), pyray.RED)
 
     def _print_score(self, player):
         """
             Message 2, displays the Player's current score.
         """
-        pyray.draw_text(f"Score: {player.get_score()}", 0, int(self._font_size * 2/3), int(self._font_size * 2/3), pyray.RED)
+        pyray.draw_text(f"Score: {player.get_score()}", 0, int(self._font_size * 2), int(self._font_size * 2), pyray.RED)
 
     def _print_actor(self, actor):
         """
             Prints the given actor on the board. All variables used are recieved from the actor itself.
         """
         pyray.draw_text(actor.get_character(), actor.get_x(), actor.get_y(), actor.get_font_size(), actor.get_color())
+
+    def _print_rock(self, rock):
+        """
+            Prints the given rock on the board. All variables used are recieved from the actor itself.
+        """
+        pyray.draw_text(rock.get_symbol(), rock.get_x(), rock.get_y(), self._font_size, random.choice(self._colors))
+
+    def _print_player(self, player):
+        pyray.draw_text("#", player.get_x(), player.get_y(), self._font_size, pyray.RAYWHITE)
 
     def update(self, player, rocks):
         """
@@ -75,11 +87,11 @@ class Window():
         pyray.clear_background(pyray.BLACK)
 
         # Updates all the rocks
-        for a in rocks:            
-            self._print_actor(a)
-
+        for a in rocks:
+            self._print_rock(a)
+        
         # Updates the player
-        self._print_actor(player)
+        self._print_player(player)
 
         # Updates the score
         self._print_num_rocks(rocks) # Debugging: Checking that rocks are restocked
