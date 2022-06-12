@@ -51,17 +51,11 @@ class Window():
     def get_height(self):
         return self._height
 
-    def _print_num_rocks(self, rocks):
-        """
-            Message 1, displays how many rocks are falling. For Debug
-        """
-        pyray.draw_text(f"Falling: {len(rocks)}", 0, 0, int(self._font_size * 2), pyray.RED)
-
     def _print_score(self, player):
         """
-            Message 2, displays the Player's current score.
+            Message 1, displays the Player's current score.
         """
-        pyray.draw_text(f"Score: {player.get_score()}", 0, int(self._font_size * 2), int(self._font_size * 2), pyray.RED)
+        pyray.draw_text(f"Score: {player.get_score()}", 0, 0, int(self._font_size * 2), pyray.RED)
 
     def _print_actor(self, actor):
         """
@@ -94,7 +88,6 @@ class Window():
         self._print_player(player)
 
         # Updates the score
-        self._print_num_rocks(rocks) # Debugging: Checking that rocks are restocked
         self._print_score(player)
 
         pyray.end_drawing()
