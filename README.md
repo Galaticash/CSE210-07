@@ -34,15 +34,16 @@ Score | Calculates and displays the score
 
 ## TODO: Implementation
 - [ ] Code each class (using inheritance!)
-     - [ ] Director/Game
-     - [ ] Player
-     - [ ] Player Input
-     - [ ] GUI/Screen
-     - [ ] Rock
-     - [ ] Gem
-     - [ ] Score
+     - [x] Director/Game
+     - [x] Player
+     - [x] Player Input
+     - [x] Graphical Interface/Window
+     - [x] Rock (base class)
+     - [x] Gem (inherits from Rock)
+     - [X] Score
      - [ ] * Big Rock
      - [ ] * Message
+     - [ ] * Actor (base class for Rock and Player)
 - [ ] Add comments
 - [ ] Ensure the entire program works
 
