@@ -119,26 +119,29 @@ class Director:
         """
             Updates the game based on Player movement and the falling Rocks. 
         """
-        # Sees if the Player has moved, updates position
-        self._Player.move()
+        if self._window.should_close():
+            self._game_over = True
+        else:
+            # Sees if the Player has moved, updates position
+            self._Player.move()
 
-        # Have each rock fall, and check if they are nearing the bottom
-        for rock in self._Rocks:
-            rock.fall()
+            # Have each rock fall, and check if they are nearing the bottom
+            for rock in self._Rocks:
+                rock.fall()
 
-            # If the Rock has hit rock bottom,
-            if rock.get_y() > self._window_max_y:
-                # This Rock dissapears and is replaced by a new Rock
-                self._replace_rock(rock)
-            # Else if the Rock is near the Player,
-            elif rock.get_y() > self._window_max_y - self._font_size:
-                # Check if the Player has been hit by said rock
-                if self._is_player_hit(rock):
-                    # Rock dissapears if it hits the Player
+                # If the Rock has hit rock bottom,
+                if rock.get_y() > self._window_max_y:
+                    # This Rock dissapears and is replaced by a new Rock
                     self._replace_rock(rock)
-        
-        # Updates the visuals of the game
-        self._window.update(self._Player, self._Rocks)
+                # Else if the Rock is near the Player,
+                elif rock.get_y() > self._window_max_y - self._font_size:
+                    # Check if the Player has been hit by said rock
+                    if self._is_player_hit(rock):
+                        # Rock dissapears if it hits the Player
+                        self._replace_rock(rock)
+            
+            # Updates the visuals of the game
+            self._window.update(self._Player, self._Rocks)
 
     def get_game_over(self):
         """

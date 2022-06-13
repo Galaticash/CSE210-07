@@ -76,6 +76,9 @@ class Window():
 
         pyray.end_drawing()
 
+    def should_close(self):
+        return pyray.window_should_close()
+
     def close(self):
         """
             Closes the window. Called at the end of the program.
